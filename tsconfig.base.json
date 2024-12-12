@@ -1,0 +1,169 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2020", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@client/app-shell": ["libs/client/app-shell/feature/src/index.ts"],
+      "@client/app-shell/add-friend-dialog": [
+        "libs/client/app-shell/ui/add-friend-dialog/src/index.ts"
+      ],
+      "@client/chat/chatting-screen": [
+        "libs/client/chat/feature/chatting-screen/src/index.ts"
+      ],
+      "@client/chat/conversation": [
+        "libs/client/chat/feature/conversation/src/index.ts"
+      ],
+      "@client/chat/data-access": ["libs/client/chat/data-access/src/index.ts"],
+      "@client/chat/data-access/conversation": [
+        "libs/client/chat/data-access/src/lib/store/conversation/index.ts"
+      ],
+      "@client/chat/enum": [
+        "libs/client/chat/data-access/src/lib/enum/index.ts"
+      ],
+      "@client/chat/message-screen": [
+        "libs/client/chat/feature/message-screen/src/index.ts"
+      ],
+      "@client/chat/model": [
+        "libs/client/chat/data-access/src/lib/model/index.ts"
+      ],
+      "@client/chat/store": [
+        "libs/client/chat/data-access/src/lib/store/index.ts"
+      ],
+      "@client/chat/ui/conversation-header": [
+        "libs/client/chat/ui/conversation-header/src/index.ts"
+      ],
+      "@client/chat/ui/conversation-list": [
+        "libs/client/chat/ui/conversation-list/src/index.ts"
+      ],
+      "@client/environment": ["apps/web-chat/src/environments/environment.ts"],
+      "@client/guard/auth": ["libs/client/shared/guard/src/lib/auth.guard.ts"],
+      "@client/layout": ["libs/client/app-shell/ui/layout/src/index.ts"],
+      "@client/layout/side-bar": [
+        "libs/client/app-shell/ui/side-bar/src/index.ts"
+      ],
+      "@client/pipes/time-ago": [
+        "libs/client/shared/pipes/time-ago/src/index.ts"
+      ],
+      "@client/profile": ["libs/client/profile/feature/src/index.ts"],
+      "@client/profile/model": [
+        "libs/client/profile/data-access/src/lib/profile.model.ts"
+      ],
+      "@client/profile/service": [
+        "libs/client/profile/data-access/src/lib/profile.service.ts"
+      ],
+      "@client/provider/app-state": [
+        "libs/client/shared/provider/app-state/src/index.ts"
+      ],
+      "@client/store/enum": ["libs/client/shared/store/src/lib/enum.ts"],
+      "@client/store/model": ["libs/client/shared/store/src/lib/model.ts"],
+      "@client/store/state": ["libs/client/shared/store/src/lib/state.ts"],
+      "@client/store/store": ["libs/client/shared/store/src/lib/store.ts"],
+      "@client/store/token": ["libs/client/shared/store/src/lib/token.ts"],
+      "@client/ui/input-search": [
+        "libs/client/shared/ui/input-search/src/index.ts"
+      ],
+      "@client/ui/page-not-found": [
+        "libs/client/shared/ui/page-not-found/src/index.ts"
+      ],
+      "@client/user": ["libs/client/user/feature/src/index.ts"],
+      "@client/user/data-access/model": [
+        "libs/client/user/data-access/src/lib/user.model.ts"
+      ],
+      "@client/user/data-access/service": [
+        "libs/client/user/data-access/src/lib/user.service.ts"
+      ],
+      "@client/user/register": ["libs/client/user/ui/register/src/index.ts"],
+      "@client/user/sign-in": ["libs/client/user/ui/sign-in/src/index.ts"],
+      "@client/utils/app-config": [
+        "libs/client/shared/utils/app-config/src/index.ts"
+      ],
+      "@client/utils/di": [
+        "libs/client/shared/utils/injection-token/src/index.ts"
+      ],
+      "@client/utils/socket": [
+        "libs/client/shared/utils/socket-service/src/index.ts"
+      ],
+      "@client/utils/toast": ["libs/client/shared/utils/toast/src/index.ts"],
+      "@nest-monorepo/chating-screen": [
+        "libs/client/chat/feature/chating-screen/src/index.ts"
+      ],
+      "@nest-monorepo/chatting-detail": [
+        "libs/client/chat/ui/chatting-detail/src/index.ts"
+      ],
+      "@nest-monorepo/decorators": ["libs/server/decorators/src/index.ts"],
+      "@nest-monorepo/guards": ["libs/server/guards/src/index.ts"],
+      "@client/directives/highlight": [
+        "libs/client/shared/directives/highlight/src/index.ts"
+      ],
+      "@nest-monorepo/languages": ["libs/client/shared/languages/src/index.ts"],
+      "@nest-monorepo/message-list": [
+        "libs/client/chat/ui/message-list/src/index.ts"
+      ],
+      "@nest-monorepo/microservice": ["libs/server/microservice/src/index.ts"],
+      "@server/auth/data-access": ["libs/server/auth/data-access/src/index.ts"],
+      "@server/auth/feature": ["libs/server/auth/feature/src/index.ts"],
+      "@server/auth/utils": ["libs/server/auth/utils/src/index.ts"],
+      "@server/shared/configs": ["libs/server/configs/src/index.ts"],
+      "@server/shared/dtos": ["libs/server/dtos/src/index.ts"],
+      "@server/shared/dtos/account": [
+        "libs/server/dtos/src/lib/account/index.ts"
+      ],
+      "@server/shared/dtos/conversation": [
+        "libs/server/dtos/src/lib/conversation/index.ts"
+      ],
+      "@server/shared/dtos/message": [
+        "libs/server/dtos/src/lib/message/index.ts"
+      ],
+      "@server/shared/dtos/profile": [
+        "libs/server/dtos/src/lib/profile/index.ts"
+      ],
+      "@server/shared/entity/account": [
+        "libs/server/entities/src/lib/account.entity.ts"
+      ],
+      "@server/shared/entity/conversation": [
+        "libs/server/entities/src/lib/conversation.entity.ts"
+      ],
+      "@server/shared/entity/friend": [
+        "libs/server/entities/src/lib/friend.entity.ts"
+      ],
+      "@server/shared/entity/message": [
+        "libs/server/entities/src/lib/message.entity.ts"
+      ],
+      "@server/shared/entity/profile": [
+        "libs/server/entities/src/lib/profile.entity.ts"
+      ],
+      "@server/shared/entity/user-conversation": [
+        "libs/server/entities/src/lib/user-conversation.entity.ts"
+      ],
+      "@server/shared/message-pattern": [
+        "libs/server/message-pattern/src/index.ts"
+      ],
+      "@server/shared/message-pattern/auth": [
+        "libs/server/message-pattern/src/lib/auth/index.ts"
+      ],
+      "@server/shared/message-pattern/chat": [
+        "libs/server/message-pattern/src/lib/chat/index.ts"
+      ],
+      "@server/shared/nats-client": ["libs/server/nats-client/src/index.ts"],
+      "@shared/enums": ["libs/shared/enums/src/index.ts"],
+      "@shared/models/conversation": [
+        "libs/shared/models/src/lib/conversation.ts"
+      ],
+      "@shared/models/message": ["libs/shared/models/src/lib/message.ts"],
+      "@shared/socket-pattern": ["libs/shared/socket-pattern/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

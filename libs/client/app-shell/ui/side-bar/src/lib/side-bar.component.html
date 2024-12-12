@@ -1,0 +1,98 @@
+<div
+  class="w-full h-screen bg-gray-900 flex flex-column py-8 justify-content-between border-round-md"
+>
+  <div class="flex flex-column" #appendToRef>
+    @for (item of sideBarItems(); track $index) {
+    <a
+      (click)="onSelect($event, item, $index)"
+      [pTooltip]="item.tooltip"
+      tooltipPosition="right"
+      class="px-2 py-3 p-menuitem-link mb-2 {{
+        $index === selectedSideBar().index ? 'bg-gray-800' : 'bg-gray-900'
+      }} hover:bg-gray-800 transition-duration-200 cursor-pointer text-center border-round-md"
+    >
+      @if(item.badgeValue){
+      <span
+        class="text-color text-2xl"
+        pBadge
+        [value]="item.badgeValue"
+        [class]="item.icon"
+      ></span>
+      } @else {
+      <span class="text-color text-2xl" [class]="item.icon"></span>
+      }
+    </a>
+    }
+  </div>
+  <div class="flex flex-column">
+    <a
+      pTooltip="Notification"
+      tooltipPosition="right"
+      class="mb-2 p-menuitem-link bg-gray-900 hover:bg-gray-800 transition-duration-200 cursor-pointer text-center border-round-md"
+    >
+      <span
+        (click)="op.toggle($event)"
+        pBadge
+        [value]="unreadCountNotis()"
+        class="text-color px-2 py-2 text-2xl"
+        [class]="'pi pi-bell'"
+      ></span>
+    </a>
+    <p-avatar
+      [image]="avatarUrl()"
+      shape="circle"
+      class="text-center cursor-pointer mb-2"
+    />
+    <a
+      pTooltip="Sign out"
+      tooltipPosition="right"
+      class="p-menuitem-link bg-gray-900 hover:bg-gray-800 transition-duration-200 cursor-pointer text-center border-round-md"
+    >
+      <span
+        (click)="signOut()"
+        class="text-color px-2 py-2 text-2xl"
+        [class]="'pi pi-sign-out'"
+      ></span>
+    </a>
+  </div>
+</div>
+
+<lib-add-friend-dialog
+  [profileData]="profileData()"
+  [visible]="toggleAddFriendDialog()"
+  (cancelChanges)="onCancelDialog()"
+  (saveChanges)="onSaveFriend($event)"
+  (searchProfileChanges)="onSearchProfile($event)"
+></lib-add-friend-dialog>
+
+<p-toast position="top-center" key="my-toast" />
+
+<p-overlayPanel
+  #op
+  [appendTo]="appendToRef"
+  [style]="overlayStyle"
+  [styleClass]="'bg-gray-900 notification-overlaypanel p-2'"
+  [showCloseIcon]="false"
+>
+  @for (item of notifications(); track item.content) {
+  <section
+    [ngClass]="{ 'bg-gray-900': item.read, 'bg-blue-800': !item.read }"
+    class="mb-2 w-full flex column-gap-2 min-h-max bg-gray-900 hover:bg-gray-800 py-2 px-3 border-round-md cursor-pointer transition-duration-200"
+  >
+    <section class="col-2">
+      <p-avatar
+        [image]="avatarUrl()"
+        shape="circle"
+        size="large"
+        class="text-center cursor-pointer mb-2"
+      ></p-avatar>
+    </section>
+    <section class="col-10 flex flex-column justify-content-between">
+      <span class="block">{{ item.content }}</span>
+      <span class="block mt-2 text-end text-xs">{{
+        item.timeSend | timeAgo
+      }}</span>
+    </section>
+  </section>
+  }
+</p-overlayPanel>

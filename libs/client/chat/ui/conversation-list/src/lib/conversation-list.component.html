@@ -1,0 +1,42 @@
+<section
+  class="flex flex-column gap-2 mt-2 overflow-y-auto py-2 hidden-scrollbar"
+  [style.height]="'calc(100% - 150px)'"
+>
+  @for (item of dataSource(); track $index) {
+  <div
+    (click)="onSelectConversation(item, $index)"
+    cwmHighlight
+    [highlight]="!!item.lastMessage.onHighlight"
+    (offHighlight)="turnOffHighlight.emit(item.id)"
+    class="w-full flex column-gap-2 min-h-max hover:bg-gray-800 py-2 px-2 border-round-md cursor-pointer transition-duration-200"
+    [ngClass]="{
+      'bg-gray-900':
+        !item.lastMessage.unread && selectedConversation()?.index !== $index,
+      'bg-gray-800': selectedConversation()?.index === $index
+    }"
+  >
+    @if(item.receiver?.avatarUrl){
+    <p-avatar
+      [image]="item.receiver?.avatarUrl"
+      size="large"
+      shape="circle"
+    ></p-avatar>
+
+    } @else {
+    <p-avatar label="P" size="large" shape="circle"></p-avatar>
+    }
+    <section
+      class="w-full"
+      [ngClass]="{
+        'text-blue-500': item.lastMessage.unread
+      }"
+    >
+      <span class="flex-1">{{ item.receiver?.fullName }}</span>
+      <div class="mt-2 flex w-full">
+        <span class="flex-1 text-xs">{{ item.lastMessage.content }}</span>
+        <span class="text-xs">{{ item.lastMessage.timeSend | timeAgo }}</span>
+      </div>
+    </section>
+  </div>
+  }
+</section>

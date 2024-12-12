@@ -1,0 +1,4 @@
+export const MICRO_SERVICE_NAMES = Object.freeze({
+  AUTH_SERVICE: 'AUTH_SERVICE',
+  CHAT_SERVICE: 'CHAT_SERVICE',
+});

@@ -1,0 +1,34 @@
+<p-dialog
+  header="Add your friends"
+  [modal]="true"
+  [visible]="visible()"
+  [style]="{ width: '42rem' }"
+>
+  <section class="w-full my-2 px-2" style="height: 200px">
+    <p-autoComplete
+      class="w-full override-auto-complete"
+      [suggestions]="profileData()"
+      (completeMethod)="filterProfile($event)"
+      optionLabel="fullName"
+      [showClear]="true"
+      [formControl]="searchControl"
+      placeholder="Type name to search..."
+    >
+      <ng-template let-profile pTemplate="item">
+        <div class="flex align-items-center gap-2">
+          <p-avatar
+            [image]="profile?.avatarUrl"
+            shape="circle"
+            class="text-center cursor-pointer mb-2"
+          />
+          <div>{{ profile.fullName }}</div>
+        </div>
+      </ng-template>
+    </p-autoComplete>
+  </section>
+
+  <div class="mt-4 flex justify-content-end gap-2 mt-4">
+    <p-button label="Cancel" severity="secondary" (onClick)="onCancel()" />
+    <p-button label="Save" (onClick)="onSave()" />
+  </div>
+</p-dialog>

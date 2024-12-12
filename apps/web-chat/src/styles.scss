@@ -1,0 +1,89 @@
+// /* You can add global styles to this file, and also import other style files */
+@import 'primeng/resources/themes/lara-dark-blue/theme.css';
+@import 'primeng/resources/primeng.css';
+@import 'primeflex/primeflex.css';
+@import 'primeicons/primeicons.css';
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  padding: 0;
+  margin: 0;
+
+  box-sizing: border-box;
+  background-color: (--surface-ground); //   font-size: 14px;
+  width: 100%;
+  height: 100%;
+}
+
+::ng-deep {
+  button {
+    width: 100% !important;
+  }
+}
+
+p-chip {
+  .p-chip {
+    background-color: var(--gray-900);
+  }
+
+  &.selected {
+    .p-chip {
+      background-color: var(--gray-800);
+    }
+  }
+}
+
+/* Apply to all scrollbars in the application */
+::-webkit-scrollbar {
+  width: 4px; /* For vertical scrollbar */
+  height: 4px; /* For horizontal scrollbar */
+  display: none !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--bg-gray-300); /* Scrollbar thumb color */
+  border-radius: 10px; /* Rounded corners for the scrollbar */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--bg-gray-400); /* Darker thumb when hovered */
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-gray-500); /* Background of the scrollbar track */
+  border-radius: 10px;
+}
+
+/* For non-webkit browsers (fallback) */
+* {
+  scrollbar-width: thin; /* Firefox: Thin scrollbar */
+  scrollbar-color: var(--bg-gray-300) var(--bg-gray-600); /* Thumb color and track color */
+}
+
+/* Hide scrollbar but allow scrolling */
+.hidden-scrollbar {
+  -ms-overflow-style: none; /* For Internet Explorer and Edge */
+  scrollbar-width: none; /* For Firefox */
+}
+
+.hidden-scrollbar::-webkit-scrollbar {
+  display: none; /* For Chrome, Safari, and Edge */
+}
+
+.override-auto-complete {
+  .p-autocomplete {
+    width: 100%;
+    .p-autocomplete-input {
+      width: 100%;
+    }
+  }
+}
+
+.notification-overlaypanel .p-overlaypanel-content {
+  padding: 0 !important;
+}
+
+.highlight-new-conversation-msg {
+  background-color: var(--blue-900) !important;
+  transition: background-color 0.5s ease !important;
+}

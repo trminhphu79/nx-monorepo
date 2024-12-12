@@ -1,0 +1,16 @@
+<section class="w-full my-2 px-2">
+  <p-iconField iconPosition="right">
+    @if(isSearching()){
+    <p-inputIcon styleClass="pi pi-spinner pi-spin" />
+    } @else {
+    <p-inputIcon styleClass="pi pi-search" />
+    }
+    <input
+      type="text"
+      pInputText
+      [formControl]="searchControl()"
+      [placeholder]="placeHolder()"
+      class="py-2 transition-duration-300 h-3rem text-base text-color surface-ground p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+    />
+  </p-iconField>
+</section>

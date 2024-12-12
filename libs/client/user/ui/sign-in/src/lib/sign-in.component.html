@@ -1,0 +1,42 @@
+<form class="w-full sm:w-22rem" [formGroup]="form">
+  <div class="text-2xl text-center text-800">Login your account</div>
+  <div class="field w-full mt-4">
+    <label for="username" class="text-800 text-base">Username</label>
+    <input
+      formControlName="username"
+      id="username"
+      type="text"
+      class="py-2 transition-duration-300 h-3rem text-base text-color surface-ground p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+    />
+  </div>
+  <div class="field w-full">
+    <label for="password" class="text-800 text-base">Password</label>
+    <input
+      formControlName="password"
+      id="password"
+      type="password"
+      class="py-2 transition-duration-300 h-3rem text-base text-color surface-ground p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+    />
+  </div>
+  <div class="w-full flex justify-content-between align-items-center">
+    <a
+      (click)="onForgotPassword()"
+      class="text-base font-medium text-blue-400 hover:underline transition-duration-100 cursor-pointer"
+      >Forgot Password?</a
+    >
+    <a
+      (click)="toSignUp()"
+      class="text-base font-medium text-blue-400 hover:underline transition-duration-100 cursor-pointer"
+      >Sign Up</a
+    >
+  </div>
+  <div class="mt-3 w-full flex justify-content-end">
+    <button
+      (click)="onSignIn()"
+      type="button"
+      class="border-1 border-solid surface-border w-full bg-blue-900 py-2 h-3rem px-2 border-round-md text-base text-blue-100 appearance-none hover:bg-blue-800 transition-duration-300 cursor-pointer"
+    >
+      Sign In
+    </button>
+  </div>
+</form>

@@ -1,0 +1,17 @@
+<section class="w-full h-full">
+  <cwm-conversation-header
+    [groups]="messageCategories()"
+    (selectGroupChanges)="onSelectMessageCategory($event)"
+  ></cwm-conversation-header>
+  <cwm-input-search
+    class="w-full h-full"
+    [isSearching]="isSearching()"
+    (searchChanges)="onSearchChanges($event)"
+  ></cwm-input-search>
+  <cwm-conversation-list
+    (turnOffHighlight)="onTurnOffHighlight($event)"
+    [dataSource]="conversations()"
+    (selectConversationChanges)="onSelectConversation($event)"
+    class="w-full h-full"
+  ></cwm-conversation-list>
+</section>

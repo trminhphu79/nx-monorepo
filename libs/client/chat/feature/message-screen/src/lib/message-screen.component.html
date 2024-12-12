@@ -1,0 +1,87 @@
+<section class="w-full h-full">
+  <section
+    class="pt-3 pb-1 border-bottom-1 border-blue-900 w-full column-gap-3 flex min-h-max px-4 flex align-items-center"
+  >
+    <section class="w-full column-gap-3 flex">
+      <p-avatar
+        [image]="sender().receiver?.avatarUrl"
+        size="large"
+        shape="circle"
+      ></p-avatar>
+      <section class="w-full flex flex-column">
+        <span class="mb-1">{{ sender().receiver?.fullName }}</span>
+        <div class="text-xs text-color">
+          <!-- {{ sender()?.lastMessage?.timeSend | date : 'medium' }} -->
+        </div>
+      </section>
+    </section>
+    <section class="ml-auto h-full flex align-items-center">
+      <i
+        class="pi pi-info-circle text-2xl text-color cursor-pointer"
+        [pTooltip]="'View infor'"
+        tooltipPosition="right"
+      ></i>
+    </section>
+  </section>
+  <section
+    class="w-full relative"
+    #wrapperMessageContent
+    style="height: calc(100% - 73px)"
+  >
+    <section
+      #messageListRef
+      class="overflow-y-auto mt-2 px-2"
+      [style.height]="computedMessageContentHeight()"
+    >
+      <div #scrollTrigger class="scroll-trigger"></div>
+      @for (item of messages(); track $index) { @if(item.isSender){
+      <section
+        (contextmenu)="onContextMenu($event, item)"
+        class="ml-auto mb-4 col-6 column-gap-2 min-h-max bg-blue-700 py-2 px-2 border-round-bottom-2xl border-round-left-2xl cursor-pointer transition-duration-200"
+      >
+        <div class="text-sm">
+          {{ item.content }}
+        </div>
+        <p class="text-xs p-0 mx-0 mb-0 mt-2 font-italic">
+          {{ item.timeSend | timeAgo }}
+        </p>
+      </section>
+
+      } @else {
+      <section
+        (contextmenu)="onContextMenu($event, item)"
+        class="mr-auto mb-4 col-6 column-gap-2 min-h-max bg-gray-800 py-2 px-2 border-round-bottom-2xl border-round-right-2xl cursor-pointer transition-duration-200"
+      >
+        <div class="text-sm" #messageRef aria-expanded="true">
+          {{ item.content }}
+        </div>
+        <p class="text-xs p-0 mx-0 mb-0 mt-2 font-italic">
+          {{ item.timeSend | timeAgo }}
+        </p>
+      </section>
+      } }
+      <span
+        class="absolute pi pi-arrow-down left-50 scroll-btn text-2xl cursor-pointer"
+        *ngIf="showScrollBtn()"
+        (click)="scrollToBottom()"
+      ></span>
+    </section>
+    <section
+      class="fixed bottom-0"
+      [style.width]="wrapperMessageContent.offsetWidth + 'px'"
+    >
+      <p-iconField iconPosition="right" class="w-full">
+        <p-inputIcon styleClass="pi pi-send" tooltipPosition="right" />
+        <input
+          type="text"
+          pInputText
+          #chatControlRef
+          placeholder="Typing message..."
+          class="py-2 transition-duration-300 h-3rem text-base text-color surface-ground p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+        />
+      </p-iconField>
+    </section>
+  </section>
+</section>
+
+<p-contextMenu #cm [model]="contextMenuItems" />

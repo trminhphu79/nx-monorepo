@@ -1,0 +1,29 @@
+<div class="w-full h-screen grid flex mx-auto">
+  <div
+    class="col-6 hidden sm:flex h-full bg-blue-900 flex align-items-center flex-column justify-content-center"
+  >
+    <h1 class="text-800 text-4xl text-primary text-center">
+      Connect with Phu Tran through ChatWMe
+    </h1>
+    <div>Logo Here</div>
+  </div>
+  <div
+    class="sm:col-6 col-12 h-full block sm:flex sm:flex-column sm:justify-content-center sm:align-items-center"
+  >
+    @if(screenState() === 'SIGN_IN'){
+    <lib-sign-in
+      (changeSignUpPage)="changePage('SIGN_UP')"
+      (forgotPassword)="forgotPassword()"
+      (signIn)="signIn($event)"
+    ></lib-sign-in>
+    } @else {
+    <lib-register
+      (changeSignInPage)="changePage('SIGN_IN')"
+      (forgotPassword)="forgotPassword()"
+      (signUp)="signUp($event)"
+    ></lib-register>
+    }
+  </div>
+</div>
+
+<p-toast position="top-center" key="my-toast" />
