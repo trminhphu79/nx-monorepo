@@ -106,5 +106,6 @@
     "webpack-cli": "^5.1.4"
   },
   "nx": {},
+  
   "sideEffects": false
 }
